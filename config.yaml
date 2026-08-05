@@ -1,0 +1,53 @@
+# Face Emotion Recognition - Configuration Parameters
+
+# Paths
+paths:
+  raw_data_dir: "data/raw"
+  split_data_dir: "data/split"
+  model_dir: "models"
+  output_dir: "outputs"
+  best_model_path: "models/best_model.pth"
+
+# Dataset parameters
+dataset:
+  classes: ["happy", "sad", "angry", "neutral", "surprise"]
+  split_ratio:
+    train: 0.70
+    val: 0.15
+    test: 0.15
+  image_size: [64, 64]       # Height, Width
+  channels: 1                 # 1 for grayscale, 3 for RGB
+  batch_size: 32
+  num_workers: 0              # 0 for Windows compatibility
+  augmentation:
+    enabled: true
+    random_rotation_degrees: 15
+    random_horizontal_flip: true
+
+# CNN Model architecture settings
+model:
+  name: "EmotionCNN"
+  # Configuration for convolutional layers: [out_channels, kernel_size, stride, padding]
+  # You can add/remove layers here, and the model loader should build it dynamically
+  conv_layers:
+    - [16, 3, 1, 1]
+    - [32, 3, 1, 1]
+    - [64, 3, 1, 1]
+    - [128, 3, 1, 1]
+  fc_layers: [256, 128]       # Fully connected hidden layers
+  dropout_rate: 0.4
+
+# Training parameters
+training:
+  epochs: 30
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  device: "cuda"              # "cuda", "cpu", or "auto"
+
+# Webcam settings
+webcam:
+  device_index: 0             # Usually 0 for default built-in webcam
+  face_detection:
+    cascade_path: "haarcascade_frontalface_default.xml"
+    scale_factor: 1.1
+    min_neighbors: 5

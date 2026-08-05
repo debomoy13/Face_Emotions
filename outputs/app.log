@@ -1,0 +1,4 @@
+[2026-08-06 01:57:20,533] INFO [FaceEmotionApp.main:65] Running command: split
+[2026-08-06 01:57:20,540] INFO [FaceEmotionApp.split_dataset:23] Starting dataset splitting process...
+[2026-08-06 01:57:20,540] ERROR [FaceEmotionApp.main:95] Feature not yet implemented: Implement split_dataset in src/dataset_prep.py
+[2026-08-06 01:57:20,540] INFO [FaceEmotionApp.main:96] Please implement the corresponding function in the designated source file.
