@@ -2,3 +2,34 @@
 [2026-08-06 01:57:20,540] INFO [FaceEmotionApp.split_dataset:23] Starting dataset splitting process...
 [2026-08-06 01:57:20,540] ERROR [FaceEmotionApp.main:95] Feature not yet implemented: Implement split_dataset in src/dataset_prep.py
 [2026-08-06 01:57:20,540] INFO [FaceEmotionApp.main:96] Please implement the corresponding function in the designated source file.
+[2026-08-06 21:50:59,808] INFO [FaceEmotionApp.main:65] Running command: collect
+[2026-08-06 21:51:12,139] INFO [FaceEmotionApp.collect_data:42] Initializing webcam data collection for: happy
+[2026-08-06 21:51:12,139] INFO [FaceEmotionApp.collect_data:52] Found 0 existing images in data/raw\happy
+[2026-08-06 21:51:12,141] ERROR [FaceEmotionApp.collect_data:63] Failed to load face detector: module 'cv2' has no attribute 'CascadeClassifier'
+[2026-08-06 21:59:46,797] INFO [FaceEmotionApp.main:65] Running command: collect
+[2026-08-06 21:59:52,410] INFO [FaceEmotionApp.collect_data:42] Initializing webcam data collection for: happy
+[2026-08-06 21:59:52,411] INFO [FaceEmotionApp.collect_data:52] Found 0 existing images in data/raw\happy
+[2026-08-06 21:59:54,284] INFO [FaceEmotionApp.collect_data:78] Data collection started. Face the camera. Press 'q' to quit.
+[2026-08-06 21:59:55,634] INFO [FaceEmotionApp.collect_data:120] [1/100] Saved face crop to: data/raw\happy\face_1786033795631.jpg
+[2026-08-06 21:59:58,672] INFO [FaceEmotionApp.collect_data:120] [2/100] Saved face crop to: data/raw\happy\face_1786033798648.jpg
+[2026-08-06 22:00:01,676] INFO [FaceEmotionApp.collect_data:120] [3/100] Saved face crop to: data/raw\happy\face_1786033801675.jpg
+[2026-08-06 22:00:04,700] INFO [FaceEmotionApp.collect_data:120] [4/100] Saved face crop to: data/raw\happy\face_1786033804699.jpg
+[2026-08-06 22:00:07,739] INFO [FaceEmotionApp.collect_data:120] [5/100] Saved face crop to: data/raw\happy\face_1786033807737.jpg
+[2026-08-06 22:00:10,790] INFO [FaceEmotionApp.collect_data:120] [6/100] Saved face crop to: data/raw\happy\face_1786033810763.jpg
+[2026-08-06 22:00:13,789] INFO [FaceEmotionApp.collect_data:120] [7/100] Saved face crop to: data/raw\happy\face_1786033813787.jpg
+[2026-08-06 22:00:16,824] INFO [FaceEmotionApp.collect_data:120] [8/100] Saved face crop to: data/raw\happy\face_1786033816822.jpg
+[2026-08-06 22:00:19,845] INFO [FaceEmotionApp.collect_data:120] [9/100] Saved face crop to: data/raw\happy\face_1786033819844.jpg
+[2026-08-06 22:00:22,902] INFO [FaceEmotionApp.collect_data:120] [10/100] Saved face crop to: data/raw\happy\face_1786033822878.jpg
+[2026-08-06 22:00:25,904] INFO [FaceEmotionApp.collect_data:120] [11/100] Saved face crop to: data/raw\happy\face_1786033825902.jpg
+[2026-08-06 22:00:28,929] INFO [FaceEmotionApp.collect_data:120] [12/100] Saved face crop to: data/raw\happy\face_1786033828927.jpg
+[2026-08-06 22:00:31,961] INFO [FaceEmotionApp.collect_data:120] [13/100] Saved face crop to: data/raw\happy\face_1786033831961.jpg
+[2026-08-06 22:00:34,988] INFO [FaceEmotionApp.collect_data:120] [14/100] Saved face crop to: data/raw\happy\face_1786033834963.jpg
+[2026-08-06 22:00:37,980] INFO [FaceEmotionApp.collect_data:120] [15/100] Saved face crop to: data/raw\happy\face_1786033837980.jpg
+[2026-08-06 22:00:41,032] INFO [FaceEmotionApp.collect_data:120] [16/100] Saved face crop to: data/raw\happy\face_1786033841007.jpg
+[2026-08-06 22:00:44,035] INFO [FaceEmotionApp.collect_data:120] [17/100] Saved face crop to: data/raw\happy\face_1786033844034.jpg
+[2026-08-06 22:00:47,067] INFO [FaceEmotionApp.collect_data:120] [18/100] Saved face crop to: data/raw\happy\face_1786033847066.jpg
+[2026-08-06 22:00:50,093] INFO [FaceEmotionApp.collect_data:120] [19/100] Saved face crop to: data/raw\happy\face_1786033850092.jpg
+[2026-08-06 22:00:53,116] INFO [FaceEmotionApp.collect_data:120] [20/100] Saved face crop to: data/raw\happy\face_1786033853115.jpg
+[2026-08-06 22:00:56,134] INFO [FaceEmotionApp.collect_data:120] [21/100] Saved face crop to: data/raw\happy\face_1786033856132.jpg
+[2026-08-06 22:00:59,162] INFO [FaceEmotionApp.collect_data:120] [22/100] Saved face crop to: data/raw\happy\face_1786033859138.jpg
+[2026-08-06 22:01:02,141] INFO [FaceEmotionApp.collect_data:120] [23/100] Saved face crop to: data/raw\happy\face_1786033862141.jpg

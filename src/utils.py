@@ -34,8 +34,22 @@ def load_face_cascade(cascade_path="haarcascade_frontalface_default.xml"):
         You can load the built-in OpenCV classifier using:
         `cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')`
     """
-    # TODO: Load and return OpenCV Haar Cascade classifier
-    raise NotImplementedError("Implement load_face_cascade in src/utils.py")
+    # Try loading from the provided path
+    if os.path.exists(cascade_path):
+        cascade = cv2.CascadeClassifier(cascade_path)
+    else:
+        # Fallback to OpenCV built-in cascades folder
+        builtin_path = os.path.join(cv2.data.haarcascades, os.path.basename(cascade_path))
+        cascade = cv2.CascadeClassifier(builtin_path)
+        
+    if cascade.empty():
+        # Final fallback using direct OpenCV build-in default
+        cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+        
+    if cascade.empty():
+        raise FileNotFoundError(f"Haar cascade face detector could not be loaded from path: {cascade_path}")
+        
+    return cascade
 
 def preprocess_face(face_img, target_size=(64, 64), channels=1):
     """
