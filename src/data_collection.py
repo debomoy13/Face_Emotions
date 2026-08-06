@@ -38,7 +38,7 @@ def collect_data(config, logger):
 
     # TARGET EMOTION CLASS - Change this manually for other classes (e.g., "sad", "angry", etc.)
     emotion_class = "happy"
-
+ 
     logger.info(f"Initializing webcam data collection for: {emotion_class}")
     
     # 1. Setup save directory
@@ -46,28 +46,20 @@ def collect_data(config, logger):
     target_dir = os.path.join(raw_dir, emotion_class)
     os.makedirs(target_dir, exist_ok=True)
     
-    # Count existing images in the directory
-    existing_images = [f for f in os.listdir(target_dir) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
-    initial_count = len(existing_images)
-    logger.info(f"Found {initial_count} existing images in {target_dir}")
-
-    # 2. Load face detector
     try:
-        face_config = config.get("webcam", {}).get("face_detection", {})
-        cascade_path = face_config.get("cascade_path", "haarcascade_frontalface_default.xml")
-        scale_factor = face_config.get("scale_factor", 1.1)
-        min_neighbors = face_config.get("min_neighbors", 5)
+        face_config = config["webcam"]["face_detection"]
+        cascade_path = face_config["cascade_path"]
+        scale_factor = face_config["scale_factor"]
+        min_neighbors = face_config["min_neighbors"]
         
         face_cascade = load_face_cascade(cascade_path)
     except Exception as e:
         logger.error(f"Failed to load face detector: {e}")
         return
 
-    # 3. Open webcam feed
-    cam_index = config.get("webcam", {}).get("device_index", 0)
-    cam = cv2.VideoCapture(cam_index)
+    cam = cv2.VideoCapture(0)
     if not cam.isOpened():
-        logger.error(f"Failed to open webcam index {cam_index}")
+        logger.error("Failed to open webcam")
         return
 
     saved_count = 0
