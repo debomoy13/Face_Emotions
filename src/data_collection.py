@@ -83,10 +83,10 @@ def collect_data(config, logger):
 
         # Render HUD Overlay
         # Background bar for readability
-        cv2.rectangle(frame, (0, 0), (320, 110), (0, 0, 0), -1)
+        cv2.rectangle(frame, (0, 0), (200, 100), (0, 0, 0), -1)
         
         cv2.putText(frame, f"Emotion Class: {emotion_class.upper()}", (10, 25), 
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1, cv2.LINE_AA)
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
         
         cv2.putText(frame, f"Progress: {saved_count} / {max_images}", (10, 50), 
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 1, cv2.LINE_AA)
