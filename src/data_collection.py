@@ -6,38 +6,8 @@ from src.utils import load_face_cascade
 """from src.utils import load_face_cascade"""
 
 def collect_data(config, logger):
-    """
-    Launches an interactive OpenCV window to capture face images from the webcam.
-    
-    Requirements to implement:
-    1. Open webcam feed (cv2.VideoCapture) using camera index from config.
-    2. Load face detector to locate faces in the frame.
-    3. Loop over incoming frames:
-       - Detect faces in the current frame.
-       - Highlight faces with a bounding box overlay.
-       - Render HUD showing:
-         * Selected emotion class
-         * Key mapping instructions (e.g., keys 1-5 to switch classes)
-         * Current image count for each emotion class
-         * Auto-capture status (enabled/disabled)
-       - Display the frame.
-    4. Capture Trigger (manual: SPACE, or automatic time-interval toggle: 'c'):
-       - Extract the bounding box crop of the primary detected face.
-       - Save the face crop to `data/raw/{emotion_class}/face_{timestamp_or_index}.jpg`.
-       - Update class counts dynamically.
-    5. Key handlers:
-       - '1' to '5': Switch target emotion class (Happy, Sad, Angry, Neutral, Surprise).
-       - 'SPACE': Capture single crop.
-       - 'c': Toggle auto-capture mode (e.g., save crop every N frames).
-       - 'q': Exit data collection loop and release webcam resource.
-       
-    Args:
-        config (dict): Configuration dictionary.
-        logger (logging.Logger): Log helper.
-      """
-
     # TARGET EMOTION CLASS - Change this manually for other classes (e.g., "sad", "angry", etc.)
-    emotion_class = "sad"
+    emotion_class = "happy"
  
     logger.info(f"Initializing webcam data collection for: {emotion_class}")
     
@@ -65,7 +35,7 @@ def collect_data(config, logger):
     saved_count = 0
     max_images = 100
     last_save_time = 0.0
-    save_interval = 3
+    save_interval = 1
 
     logger.info("Data collection started. Face the camera. Press 'q' to quit.")
 
