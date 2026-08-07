@@ -21,5 +21,24 @@ def split_dataset(config, logger):
         logger (logging.Logger): Centralized logging handle.
     """
     logger.info("Starting dataset splitting process...")
-    # TODO: Implement file copying/moving, random shuffling, split boundary calculation.
+def load_config():
+    data_dir=config['paths']['raw_data_dir']
+    split_dir=config['paths']['split_data_dir']
+    class_names=config['dataset']['classes']
+    train_size=config['dataset']['split_ratio']['train']
+    val_size=config['dataset']['split_ratio']['val']
+    test_size=config['dataset']['split_ratio']['test']
+    return data_dir,split_dir,class_names,train_size,val_size,test_size
+
+def make_dir():
+    data_dir,split_dir,class_names,train_size,val_size,test_size=load_config()
+    for class_name in class_names:
+        for s in ['train','val','test']:
+            save_path=os.path.join(split_dir,s,class_name)
+            os.makedirs(save_path,exist_ok=True)    
+
+            
+    
+
+        # TODO: Implement file copying/moving, random shuffling, split boundary calculation.
     raise NotImplementedError("Implement split_dataset in src/dataset_prep.py")
