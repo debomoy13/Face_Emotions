@@ -37,7 +37,7 @@ def collect_data(config, logger):
       """
 
     # TARGET EMOTION CLASS - Change this manually for other classes (e.g., "sad", "angry", etc.)
-    emotion_class = "happy"
+    emotion_class = "sad"
  
     logger.info(f"Initializing webcam data collection for: {emotion_class}")
     
@@ -139,4 +139,4 @@ def collect_data(config, logger):
 
     cam.release()
     cv2.destroyAllWindows()
-    logger.info(f"Finished. Captured {saved_count} new images (total in folder: {initial_count + saved_count}).")
+    logger.info(f"Finished. Captured {saved_count} new images.")
