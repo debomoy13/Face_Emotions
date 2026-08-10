@@ -32,13 +32,35 @@ def load_config():
 
 def make_dir():
     data_dir,split_dir,class_names,train_size,val_size,test_size=load_config()
+    if os.path.exists(split_dir):
+        shutil.rmtree(split_dir)    
     for class_name in class_names:
         for s in ['train','val','test']:
             save_path=os.path.join(split_dir,s,class_name)
-            os.makedirs(save_path,exist_ok=True)    
+            os.makedirs(save_path,exist_ok=True)
+    return 
 
-            
-    
+def shuffle_files():
+    class_names=load_config()
+    for i in class_names:
+        files=[os.listdir(f"data/raw/{i}")]
+        random.shuffle(files)
 
+def split_images():
+    data_dir, split_dir, class_names, train_size, val_size, test_size = load_config()
+    for class_name in class_names:
+        class_path = os.path.join(data_dir, class_name)
+        files = [file for file in os.listdir(class_path)]
+        n=len(files)
+
+        train_end=int(n*train_size)
+        test=int(n*test_size)
+        val_end=int(n*val_size)
+
+        train_images = files[:train_end]
+        val_images = files[train_end:val_end]
+        test_images = files[val_end:]
+
+        
         # TODO: Implement file copying/moving, random shuffling, split boundary calculation.
     raise NotImplementedError("Implement split_dataset in src/dataset_prep.py")
