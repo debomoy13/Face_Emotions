@@ -1,11 +1,4 @@
-import torch
-import torch.nn as nn
-from PIL import glob
-from tensorflow.keras.models import Sequential
-classes=glob('data/')
 
-
-filepath='data'
 import tensorflow as tf
 """First Baseline model"""
 model=tf.keras.Sequential(
