@@ -61,6 +61,27 @@ def split_images():
         val_images = files[train_end:val_end]
         test_images = files[val_end:]
 
-        
+        for filename in train_images:
+            source = os.path.join(data_dir, class_name, filename)
+            destination = os.path.join(
+                split_dir, "train", class_name, filename
+            )
+            shutil.copy2(source, destination)
+
+        for filename in val_images:
+            source = os.path.join(data_dir, class_name, filename)
+            destination = os.path.join(
+                split_dir, "val", class_name, filename
+            )
+            shutil.copy2(source, destination)
+
+        for filename in test_images:
+            source = os.path.join(data_dir, class_name, filename)
+            destination = os.path.join(
+                split_dir, "test", class_name, filename
+            )
+            shutil.copy2(source, destination)
+
+
         # TODO: Implement file copying/moving, random shuffling, split boundary calculation.
     raise NotImplementedError("Implement split_dataset in src/dataset_prep.py")
