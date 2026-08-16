@@ -21,3 +21,11 @@ val_ds = tf.keras.utils.image_dataset_from_directory(
     batch_size=32,
     shuffle=False
 )
+
+test_ds = tf.keras.utils.image_dataset_from_directory(
+    test_dir,
+    image_size=(48, 48),
+    color_mode="grayscale",
+    batch_size=32,
+    shuffle=False
+)
