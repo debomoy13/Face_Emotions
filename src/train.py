@@ -29,3 +29,11 @@ test_ds = tf.keras.utils.image_dataset_from_directory(
     batch_size=32,
     shuffle=False
 )
+import tensorflow as tf
+normalization_layer=tf.keras.layers,Rescaling(1./255)
+
+train_ds=train_ds.map(lambda x,y: (normalization_layer(x),y))
+
+val_ds=val_ds.map(lambda x,y: (normalization_layer(x),y))
+
+test_ds=test_ds.map(lambda x,y: (normalization_layer(x),y))
