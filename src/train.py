@@ -1,6 +1,7 @@
 import os
 import matplotlib.pyplot as plt
 from model import model
+import tensorflow as tf
 
 train_dir="data/split/train"
 val_dir="data/split/val"
@@ -29,7 +30,7 @@ test_ds = tf.keras.utils.image_dataset_from_directory(
     batch_size=32,
     shuffle=False
 )
-import tensorflow as tf
+
 normalization_layer=tf.keras.layers.Rescaling(1./255)
 
 train_ds=train_ds.map(lambda x,y: (normalization_layer(x),y))
