@@ -38,3 +38,10 @@ train_ds=train_ds.map(lambda x,y: (normalization_layer(x),y))
 val_ds=val_ds.map(lambda x,y: (normalization_layer(x),y))
 
 test_ds=test_ds.map(lambda x,y: (normalization_layer(x),y))
+
+
+model.compile(
+    optimizer="adam",
+    loss="sparse_categorical_crossentropy",
+    metrics=["accuracy"]
+)
